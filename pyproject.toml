@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "happenstance"
+version = "0.1.0"
+description = ""
+authors = ["Jose Alonso Solis-Lemus <jsolislemus@cemrg-mbp.home>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = {version = "^1.26.2", python = "3.10"}
+ics = {version = "^0.7.2", python = "3.10"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
