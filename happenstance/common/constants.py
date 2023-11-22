@@ -48,11 +48,13 @@ SMALLG = [
     "Send a funny meme to brighten their day",
     "Plan a surprise online cooking class",
     "Leave a small surprise in their jacket pocket",
+    "Go to an improv class together",
     "Send a virtual kiss emoji"
 ]
 
 MEDIUMG = [
     "Take a day off together",
+    "Go to an improv class together",
     "Plan a weekend getaway",
     "Organize a picnic in the park",
     "Massage day",
@@ -108,7 +110,7 @@ LARGEG = [
     "Plan a surprise vacation",
     "Plan a surprise party",
     "Plan a surprise visit to an amusement park",
-    "Arrange a hot air balloon ride",
+    "Go to an improv class together",
     "Organize a private dinner",
     "Gift a piece of meaningful jewelry",
     "Create a personalized star map",
@@ -139,14 +141,10 @@ LARGEG = [
     "Plan a surprise visit to a world-class museum",
     "Organize a private stargazing experience",
     "Gift a piece of custom-made furniture",
-    "Plan a surprise visit to a high-end fashion show",
-    "Arrange a private art exhibition",
     "Gift a weekend at a picturesque lakeside retreat",
     "Plan a surprise visit to a Michelin-starred restaurant",
     "Organize a private concert under the stars",
-    "Gift a piece of custom-crafted jewelry",
     "Plan a surprise visit to a famous sports event",
-    "Arrange a private yacht party",
     "Gift a weekend at a luxury beachfront villa",
     "Plan a surprise visit to a renowned wine estate",
     "Organize a private opera performance",
