@@ -2,7 +2,7 @@
 name = "happenstance"
 version = "0.1.0"
 description = ""
-authors = ["Jose Alonso Solis-Lemus <jsolislemus@cemrg-mbp.home>"]
+authors = ["Jose Alonso Solis-Lemus <j.solis-lemus@imperial.ac.uk>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
