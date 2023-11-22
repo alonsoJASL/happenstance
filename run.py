@@ -9,10 +9,19 @@ def main(args) :
     num_days = args.num_days
     H = hppns.Happenstance(lambdas, num_days, args.start_date) 
 
-    format = "ics" if not args.csv else "csv"
-    output_path = os.path.join(args.base_dir, f'{args.output}.{format}')
+    formats = []
+    if args.ics:
+        formats.append("ics")
+    
+    if args.csv:
+        formats.append("csv")
 
-    H.save_calendar(output_path, format=format)
+    if len(formats) == 0:
+        formats.append("ics")
+
+    for format in formats:
+        output_path = os.path.join(args.base_dir, f'{args.output}.{format}')
+        H.save_calendar(output_path, format=format)
     
 
 if __name__ == '__main__' :
@@ -26,6 +35,7 @@ if __name__ == '__main__' :
     input_parser.add_argument("--small-lambda", type=float, default=0.2, help="Lambda for small gestures.")
     input_parser.add_argument("--medium-lambda", type=float, default=0.1, help="Lambda for medium gestures.")
     input_parser.add_argument("--large-lambda", type=float, default=0.05, help="Lambda for large gestures.")
+    input_parser.add_argument("--ics", action="store_true", help="Save the calendar ics file.")
     input_parser.add_argument("--csv", action="store_true", help="Save the calendar as a csv file instead of an ics file.")
 
     args = input_parser.parse_args()

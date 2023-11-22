@@ -2,43 +2,11 @@ import numpy as np
 from datetime import datetime, timedelta
 from ics import Calendar, Event
 
+from happenstance.common.constants import SMALLG, MEDIUMG, LARGEG
+import random
 
-SMALLG = [
-    "Write a heartfelt note",
-    "Cook a special dinner",
-    "Plan a movie night",
-    "Send a sweet text during the day",
-    "Surprise with favorite snacks",
-    "Buy a card for no reason",
-    "Make a playlist of favorite songs",
-    "Plan a date night",
-    "Send a care package",
-    "Make a handmade gift"
-]
+G = { "small": SMALLG, "medium": MEDIUMG, "large": LARGEG }
 
-MEDIUMG = [
-    "Take a day off together",
-    "Plan a weekend getaway",
-    "Organize a picnic in the park",
-    "Massage day",
-    "Create a scrapbook of memories",
-    "Buy some flowers",
-    "Plan a surprise visit to a museum",
-    "Plan a surprise visit to a botanical garden",
-    "Drop off a surprise at work"
-]
-
-LARGEG = [
-    "Plan a surprise vacation",
-    "Plan a surprise party",
-    "Plan a surprise visit to an amusement park",
-    "Arrange a hot air balloon ride",
-    "Organize a private dinner",
-    "Gift a piece of meaningful jewelry",
-    "Create a personalized star map", 
-    "Plan a surprise visit to a concert",
-    "Plan a surprise visit to a play"
-]
 class Happenstance:
     def __init__(self, lambdas=None, num_days=90, start_date=None):
         if lambdas is None:
@@ -72,7 +40,7 @@ class Happenstance:
             self.dates[event_category].extend(event_dates)
 
         for event_category in self.dates.keys():
-            self.events.extend([(self.start_date + timedelta(days=int(date)), event_category) for date in self.dates[event_category]])
+            self.events.extend([(self.start_date + timedelta(days=int(date)), event_category, random.choice(G[event_category])) for date in self.dates[event_category]])
 
     def create_icalendar(self):
         if len(self.events) == 0:
@@ -80,9 +48,9 @@ class Happenstance:
 
         events = self.events
         cal = Calendar()
-        for event, category in events:
+        for event, category, activity in events:
             e = Event()
-            e.name = f"{category} Event"  # Event name
+            e.name = f" Try this [{category}] activity: {activity}"  # Event name
             e.begin = event
             cal.events.add(e)
         
@@ -105,8 +73,8 @@ class Happenstance:
 
         with open(path_to_csv, 'w') as f:
             f.write("Date, Category\n")
-            for event, category in sorted_events:
-                f.write(f"{event.strftime('%Y-%m-%d')},{category}\n")
+            for event, category, activity in sorted_events:
+                f.write(f"{event.strftime('%Y-%m-%d')},{category},{activity}\n")
 
     def save_calendar(self, path_to_file, format="ics"):
         if format == "ics":
