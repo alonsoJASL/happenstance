@@ -10,7 +10,7 @@ G = { "small": SMALLG, "medium": MEDIUMG, "large": LARGEG }
 class Happenstance:
     def __init__(self, lambdas=None, num_days=90, start_date=None):
         if lambdas is None:
-            lambdas = [0.2, 0.1, 0.05]
+            lambdas = [0.15, 0.075, 0.025]
         self.lambdas = lambdas
         self.small_lambda = lambdas[0]
         self.medium_lambda = lambdas[1]
